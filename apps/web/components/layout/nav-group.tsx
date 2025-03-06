@@ -1,3 +1,5 @@
+'use client'
+
 import { Badge } from '@workspace/ui/components/badge'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@workspace/ui/components/collapsible'
 import {
