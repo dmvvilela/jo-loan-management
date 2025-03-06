@@ -1,3 +1,5 @@
+'use client'
+
 import { useSearch } from '@/contexts/search-context'
 import { IconSearch } from '@tabler/icons-react'
 import { Button } from '@workspace/ui/components/button'
