@@ -1,3 +1,5 @@
+'use client'
+
 import { useTheme } from '@/contexts/theme-context'
 import { IconCheck, IconMoon, IconSun } from '@tabler/icons-react'
 import { Button } from '@workspace/ui/components/button'

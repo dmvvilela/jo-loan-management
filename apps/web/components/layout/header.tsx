@@ -1,3 +1,5 @@
+'use client'
+
 import { Separator } from '@workspace/ui/components/separator'
 import { SidebarTrigger } from '@workspace/ui/components/sidebar'
 import { cn } from '@workspace/ui/lib/utils'

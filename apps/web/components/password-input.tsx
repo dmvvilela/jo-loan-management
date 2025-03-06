@@ -1,3 +1,5 @@
+'use client'
+
 import { IconEye, IconEyeOff } from '@tabler/icons-react'
 import { Button } from '@workspace/ui/components/button'
 import { cn } from '@workspace/ui/lib/utils'
