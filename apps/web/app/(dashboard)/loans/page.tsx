@@ -1,3 +1,4 @@
+import StatusBadge from '@/components/status-badge'
 import { getLoans } from '@/lib/server/loans'
 import Link from 'next/link'
 
@@ -47,19 +48,7 @@ const LoansPage = async () => {
                   <td className="border-b px-4 py-2">{loan.interestRate}%</td>
                   <td className="border-b px-4 py-2">{loan.termMonths}</td>
                   <td className="border-b px-4 py-2">
-                    <span
-                      className={`rounded px-2 py-1 text-xs ${
-                        loan.status === 'ACTIVE'
-                          ? 'bg-green-100 text-green-800'
-                          : loan.status === 'PENDING'
-                            ? 'bg-yellow-100 text-yellow-800'
-                            : loan.status === 'PAID'
-                              ? 'bg-blue-100 text-blue-800'
-                              : 'bg-red-100 text-red-800'
-                      }`}
-                    >
-                      {loan.status}
-                    </span>
+                    <StatusBadge status={loan.status} />
                   </td>
                   <td className="border-b px-4 py-2">{loan.lender.name}</td>
                   <td className="border-b px-4 py-2">{loan.borrower.name}</td>
