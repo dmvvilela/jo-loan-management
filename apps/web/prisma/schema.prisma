@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  loans     Loan[]   @relation("LenderLoans")
+  borrowers Loan[]   @relation("BorrowerLoans")
+}
+
+model Loan {
+  id             String   @id @default(uuid())
+  amount         Float
+  interestRate   Float
+  termMonths     Int
+  status         String   @default("PENDING") // PENDING, ACTIVE, PAID, DEFAULTED
+  startDate      DateTime?
+  endDate        DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  lenderId       String
+  borrowerId     String
+  lender         User     @relation("LenderLoans", fields: [lenderId], references: [id])
+  borrower       User     @relation("BorrowerLoans", fields: [borrowerId], references: [id])
+  payments       Payment[]
+}
+
+model Payment {
+  id        String   @id @default(uuid())
+  amount    Float
+  date      DateTime @default(now())
+  status    String   @default("PENDING") // PENDING, COMPLETED, FAILED
+  loanId    String
+  loan      Loan     @relation(fields: [loanId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+} 
