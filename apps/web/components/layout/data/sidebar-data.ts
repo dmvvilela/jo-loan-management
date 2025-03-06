@@ -19,7 +19,7 @@ export const sidebarData: SidebarData = {
   user: {
     name: 'Dan Vilela',
     email: 'dmvvilela@gmail.com',
-    avatar: '/avatars/01.png',
+    avatar: 'https://github.com/shadcn.png',
   },
   teams: [
     {
@@ -48,8 +48,13 @@ export const sidebarData: SidebarData = {
           icon: IconLayoutDashboard,
         },
         {
-          title: 'Tasks',
-          url: '/tasks',
+          title: 'Users',
+          url: '/users',
+          icon: IconUsers,
+        },
+        {
+          title: 'Loans',
+          url: '/loans',
           icon: IconChecklist,
         },
         {
@@ -62,11 +67,6 @@ export const sidebarData: SidebarData = {
           url: '/chats',
           badge: '3',
           icon: IconMessages,
-        },
-        {
-          title: 'Users',
-          url: '/users',
-          icon: IconUsers,
         },
       ],
     },
