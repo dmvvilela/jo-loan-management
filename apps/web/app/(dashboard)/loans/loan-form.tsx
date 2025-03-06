@@ -7,7 +7,7 @@ import { useState } from 'react'
 type LoanFormProps = {
   initialData?: Partial<LoanFormData>
   loanId?: string
-  users: { id: string; name: string }[]
+  users: { id: string; name: string | null }[]
   mode: 'create' | 'edit'
 }
 
@@ -136,7 +136,7 @@ const LoanForm = ({ initialData, loanId, users, mode }: LoanFormProps) => {
           <option value="">Select a lender</option>
           {users.map((user) => (
             <option key={user.id} value={user.id}>
-              {user.name}
+              {user.name || 'Unnamed User'}
             </option>
           ))}
         </select>
@@ -158,7 +158,7 @@ const LoanForm = ({ initialData, loanId, users, mode }: LoanFormProps) => {
           <option value="">Select a borrower</option>
           {users.map((user) => (
             <option key={user.id} value={user.id}>
-              {user.name}
+              {user.name || 'Unnamed User'}
             </option>
           ))}
         </select>

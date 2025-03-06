@@ -11,19 +11,12 @@ const EditLoanPage = async ({ params }: { params: { id: string } }) => {
   }
 
   // Fetch users for the dropdown
-  const usersFromDb = await prisma.user.findMany({
+  const users = await prisma.user.findMany({
     select: {
       id: true,
       name: true,
     },
   })
-
-  // Transform the data to ensure name is always a string
-  // TODO: This is a temporary fix to ensure the form works.
-  const users = usersFromDb.map((user) => ({
-    id: user.id,
-    name: user.name || '',
-  }))
 
   // Prepare initial form data with proper type casting for status
   const initialData = {

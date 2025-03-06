@@ -18,18 +18,24 @@ const UsersPage = async () => {
           <h2 className="mb-4 text-xl font-semibold">Existing Users</h2>
 
           {!success ? (
-            <div className="rounded bg-red-100 p-4">
+            <div className="rounded bg-red-100 p-4" role="alert">
               <p className="text-red-700">Error: {error}</p>
             </div>
           ) : users?.length === 0 ? (
-            <p className="text-gray-500">No users found. Create your first user!</p>
+            <p className="text-gray-500" role="status">
+              No users found. Create your first user!
+            </p>
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-full border border-gray-200 bg-white">
                 <thead>
                   <tr className="bg-gray-100">
-                    <th className="border-b px-4 py-2 text-left">Name</th>
-                    <th className="border-b px-4 py-2 text-left">Email</th>
+                    <th scope="col" className="border-b px-4 py-2 text-left">
+                      Name
+                    </th>
+                    <th scope="col" className="border-b px-4 py-2 text-left">
+                      Email
+                    </th>
                   </tr>
                 </thead>
                 <tbody>

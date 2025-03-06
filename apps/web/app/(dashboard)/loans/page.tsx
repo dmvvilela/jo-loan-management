@@ -32,13 +32,27 @@ const LoansPage = async () => {
           <table className="min-w-full border border-gray-200 bg-white">
             <thead>
               <tr className="bg-gray-100">
-                <th className="border-b px-4 py-2 text-left">Amount</th>
-                <th className="border-b px-4 py-2 text-left">Interest Rate</th>
-                <th className="border-b px-4 py-2 text-left">Term (Months)</th>
-                <th className="border-b px-4 py-2 text-left">Status</th>
-                <th className="border-b px-4 py-2 text-left">Lender</th>
-                <th className="border-b px-4 py-2 text-left">Borrower</th>
-                <th className="border-b px-4 py-2 text-left">Actions</th>
+                <th scope="col" className="border-b px-4 py-2 text-left">
+                  Amount
+                </th>
+                <th scope="col" className="border-b px-4 py-2 text-left">
+                  Interest Rate
+                </th>
+                <th scope="col" className="border-b px-4 py-2 text-left">
+                  Term (Months)
+                </th>
+                <th scope="col" className="border-b px-4 py-2 text-left">
+                  Status
+                </th>
+                <th scope="col" className="border-b px-4 py-2 text-left">
+                  Lender
+                </th>
+                <th scope="col" className="border-b px-4 py-2 text-left">
+                  Borrower
+                </th>
+                <th scope="col" className="border-b px-4 py-2 text-left">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody>

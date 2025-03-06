@@ -2,20 +2,13 @@ import prisma from '@/lib/server/prisma'
 import LoanForm from '../loan-form'
 
 const NewLoanPage = async () => {
-  // Fetch users for the dropdown and handle null names
-  const usersFromDb = await prisma.user.findMany({
+  // Fetch users for the dropdown
+  const users = await prisma.user.findMany({
     select: {
       id: true,
       name: true,
     },
   })
-
-  // Transform the data to ensure name is always a string
-  // TODO: This is a temporary fix to ensure the form works.
-  const users = usersFromDb.map((user) => ({
-    id: user.id,
-    name: user.name || '',
-  }))
 
   return (
     <div className="p-4">
