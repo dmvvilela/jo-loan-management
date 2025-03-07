@@ -3,27 +3,28 @@ import prisma from '@/lib/server/prisma'
 import { notFound } from 'next/navigation'
 import LoanForm from '../../loan-form'
 
-const EditLoanPage = async ({ params }: { params: { id: string } }) => {
-  const { success, data: loan } = await getLoanById(params.id)
+const EditLoanPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  // Await the params before using them
+  const resolvedParams = await params
+  const id = resolvedParams.id
+
+  if (!id) {
+    notFound()
+  }
+
+  const { success, data: loan } = await getLoanById(id)
 
   if (!success || !loan) {
     notFound()
   }
 
   // Fetch users for the dropdown
-  const usersFromDb = await prisma.user.findMany({
+  const users = await prisma.user.findMany({
     select: {
       id: true,
       name: true,
     },
   })
-
-  // Transform the data to ensure name is always a string
-  // TODO: This is a temporary fix to ensure the form works.
-  const users = usersFromDb.map((user) => ({
-    id: user.id,
-    name: user.name || '',
-  }))
 
   // Prepare initial form data with proper type casting for status
   const initialData = {

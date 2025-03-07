@@ -38,6 +38,7 @@ export function DashboardTabs({ stats }: { stats: DashboardStats }) {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 className="text-muted-foreground h-4 w-4"
+                aria-hidden="true"
               >
                 <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
               </svg>
@@ -59,6 +60,7 @@ export function DashboardTabs({ stats }: { stats: DashboardStats }) {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 className="text-muted-foreground h-4 w-4"
+                aria-hidden="true"
               >
                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                 <circle cx="9" cy="7" r="4" />
@@ -82,6 +84,7 @@ export function DashboardTabs({ stats }: { stats: DashboardStats }) {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 className="text-muted-foreground h-4 w-4"
+                aria-hidden="true"
               >
                 <rect width="20" height="14" x="2" y="5" rx="2" />
                 <path d="M2 10h20" />
@@ -104,6 +107,7 @@ export function DashboardTabs({ stats }: { stats: DashboardStats }) {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 className="text-muted-foreground h-4 w-4"
+                aria-hidden="true"
               >
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
               </svg>
@@ -143,7 +147,11 @@ export function DashboardTabs({ stats }: { stats: DashboardStats }) {
                         </p>
                       </div>
                       <div className="ml-auto font-medium">
-                        <Link href={`/loans/${loan.id}`} className="text-blue-500 hover:underline">
+                        <Link
+                          href={`/loans/${loan.id}`}
+                          className="text-blue-500 hover:underline"
+                          aria-label={`View loan details for $${loan.amount.toFixed(2)}`}
+                        >
                           View
                         </Link>
                       </div>
