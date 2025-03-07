@@ -3,8 +3,16 @@ import prisma from '@/lib/server/prisma'
 import { notFound } from 'next/navigation'
 import LoanForm from '../../loan-form'
 
-const EditLoanPage = async ({ params }: { params: { id: string } }) => {
-  const { success, data: loan } = await getLoanById(params.id)
+const EditLoanPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  // Await the params before using them
+  const resolvedParams = await params
+  const id = resolvedParams.id
+
+  if (!id) {
+    notFound()
+  }
+
+  const { success, data: loan } = await getLoanById(id)
 
   if (!success || !loan) {
     notFound()

@@ -5,7 +5,6 @@ import {
   IconLayoutDashboard,
   IconMessages,
   IconNotification,
-  IconPackages,
   IconPalette,
   IconSettings,
   IconTool,
@@ -57,11 +56,11 @@ export const sidebarData: SidebarData = {
           url: '/loans',
           icon: IconChecklist,
         },
-        {
-          title: 'Apps',
-          url: '/apps',
-          icon: IconPackages,
-        },
+        // {
+        //   title: 'Apps',
+        //   url: '/apps',
+        //   icon: IconPackages,
+        // },
         {
           title: 'Chats',
           url: '/chats',

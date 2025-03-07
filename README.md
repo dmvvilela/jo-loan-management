@@ -2,6 +2,10 @@
 
 A modern web application for managing loans between lenders and borrowers, built with Next.js, Prisma, and Tailwind CSS.
 
+## Live Preview
+
+This project is hosted on Vercel: [http://localhost:3000](http://localhost:3000)
+
 ## Project Overview
 
 This loan management system allows users to:
@@ -10,6 +14,7 @@ This loan management system allows users to:
 - Create, view, edit, and track loans
 - Monitor loan statuses (Pending, Active, Paid, Defaulted)
 - View dashboard analytics with key metrics and recent activity
+- Use light/dark mode
 
 The application is built as a monorepo using Next.js App Router with React Server Components for efficient server-side rendering and client-side interactivity where needed.
 
@@ -168,6 +173,7 @@ This application is built with accessibility in mind:
 - Email notifications for loan status changes
 - Advanced reporting and analytics
 - Mobile application
+- Unitary tests on business sensitive components
 
 ## Contributing
 

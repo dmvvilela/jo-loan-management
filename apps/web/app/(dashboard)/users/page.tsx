@@ -18,31 +18,41 @@ const UsersPage = async () => {
           <h2 className="mb-4 text-xl font-semibold">Existing Users</h2>
 
           {!success ? (
-            <div className="rounded bg-red-100 p-4" role="alert">
-              <p className="text-red-700">Error: {error}</p>
+            <div className="rounded bg-red-100 p-4 dark:bg-red-900/30" role="alert">
+              <p className="text-red-700 dark:text-red-200">Error: {error}</p>
             </div>
           ) : users?.length === 0 ? (
-            <p className="text-gray-500" role="status">
+            <p className="text-gray-500 dark:text-gray-400" role="status">
               No users found. Create your first user!
             </p>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="min-w-full border border-gray-200 bg-white">
-                <thead>
-                  <tr className="bg-gray-100">
-                    <th scope="col" className="border-b px-4 py-2 text-left">
+            <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead className="bg-gray-50 dark:bg-gray-800">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400"
+                    >
                       Name
                     </th>
-                    <th scope="col" className="border-b px-4 py-2 text-left">
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400"
+                    >
                       Email
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800">
                   {users?.map((user) => (
-                    <tr key={user.id} className="hover:bg-gray-50">
-                      <td className="border-b px-4 py-2">{user.name}</td>
-                      <td className="border-b px-4 py-2">{user.email}</td>
+                    <tr key={user.id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-200">
+                        {user.name}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-200">
+                        {user.email}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
