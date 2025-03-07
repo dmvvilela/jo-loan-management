@@ -4,7 +4,7 @@ A modern web application for managing loans between lenders and borrowers, built
 
 ## Live Preview
 
-This project is hosted on Vercel: [http://localhost:3000](http://localhost:3000)
+This project is hosted on Vercel: [https://jo-loan-management.vercel.app/](https://jo-loan-management.vercel.app/)
 
 ## Project Overview
 
