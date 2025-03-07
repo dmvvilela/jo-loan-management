@@ -61,7 +61,7 @@ export const LoanAssistantChat = () => {
   useSelectedPrompt(setInput, handleSend)
 
   return (
-    <Card className="flex h-[calc(100vh-250px)] flex-col border">
+    <Card className="flex flex-col border">
       <ScrollArea ref={scrollAreaRef} className="flex-1 p-4">
         <div className="space-y-4">
           {messages.map((message, index) => (
