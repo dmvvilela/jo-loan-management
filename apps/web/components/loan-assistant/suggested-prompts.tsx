@@ -71,8 +71,8 @@ export const SuggestedPrompts = ({ setActiveTab }: SuggestedPromptsProps) => {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {suggestions.map((category, index) => (
-        <Card key={index} className="flex flex-col">
-          <CardHeader>
+        <Card key={index} className="flex h-full flex-col">
+          <CardHeader className="pb-2">
             <div className="flex items-center gap-2">
               <div className="bg-primary/10 rounded-full p-2">
                 <category.icon className="text-primary h-5 w-5" />
@@ -87,11 +87,11 @@ export const SuggestedPrompts = ({ setActiveTab }: SuggestedPromptsProps) => {
                 <li key={promptIndex}>
                   <Button
                     variant="ghost"
-                    className="hover:bg-muted h-auto w-full justify-start p-2 text-left text-sm"
+                    className="hover:bg-muted line-clamp-2 flex h-auto w-full items-start justify-start whitespace-normal px-3 py-2 text-left text-sm"
                     onClick={() => handlePromptClick(prompt)}
                   >
-                    <ArrowRightIcon className="mr-2 h-3 w-3 flex-shrink-0" />
-                    <span>{prompt}</span>
+                    <ArrowRightIcon className="mr-2 mt-1 h-3 w-3 flex-shrink-0" />
+                    <span className="flex-1">{prompt}</span>
                   </Button>
                 </li>
               ))}

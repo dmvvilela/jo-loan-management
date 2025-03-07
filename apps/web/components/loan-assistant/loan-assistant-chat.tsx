@@ -1,6 +1,6 @@
 'use client'
 
-import { sendMessage } from '@/app/loan-assistant/actions'
+import { sendMessage } from '@/app/(dashboard)/loan-assistant/actions'
 import { Avatar, AvatarFallback, AvatarImage } from '@workspace/ui/components/avatar'
 import { Button } from '@workspace/ui/components/button'
 import { Card } from '@workspace/ui/components/card'
