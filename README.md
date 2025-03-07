@@ -14,6 +14,7 @@ This loan management system allows users to:
 - Create, view, edit, and track loans
 - Monitor loan statuses (Pending, Active, Paid, Defaulted)
 - View dashboard analytics with key metrics and recent activity
+- Ask questions about loans to the assistant on chat
 - Use light/dark mode
 
 The application is built as a monorepo using Next.js App Router with React Server Components for efficient server-side rendering and client-side interactivity where needed.
@@ -85,20 +86,24 @@ This will place the ui components in the `packages/ui/src/components` directory.
 
 ```
 ├── apps/
-│   └── web/                  # Main Next.js application
-│       ├── app/              # App Router pages and layouts
-│       │   ├── (dashboard)/  # Dashboard and protected routes
-│       │   │   ├── loans/    # Loan management pages
-│       │   │   └── users/    # User management pages
-│       │   └── page.tsx      # Landing page
-│       ├── components/       # React components
-│       │   ├── layout/       # Layout components
-│       │   ├── dashboard/    # Dashboard components
-│       │   └── ...           # Other shared components
-│       ├── lib/              # Utility functions and server actions
-│       │   ├── server/       # Server-side code and data fetching
-│       └── prisma/           # Prisma schema and migrations
-│           ├── schema.prisma # Database schema
+│   └── web/                    # Main Next.js application
+│       ├── app/                # App Router pages and layouts
+│       │   ├── (dashboard)/    # Dashboard and protected routes
+│       │   │   ├── loans/      # Loan management pages
+│       │   │   └── users/      # User management pages
+│       │   ├── loan-assistant/ # AI-powered loan assistant
+│       │   │   ├── actions.ts  # Server actions for Gemini AI
+│       │   │   └── page.tsx    # Loan Assistant page
+│       │   └── page.tsx        # Landing page
+│       ├── components/         # React components
+│       │   ├── layout/         # Layout components
+│       │   ├── dashboard/      # Dashboard components
+│       │   ├── loan-assistant/ # Loan Assistant components
+│       │   └── ...             # Other shared components
+│       ├── lib/                # Utility functions and server actions
+│       │   ├── server/         # Server-side code and data fetching
+│       └── prisma/             # Prisma schema and migrations
+│           ├── schema.prisma   # Database schema
 └── packages/
     └── ui/                   # Shared UI components (shadcn/ui)
         └── components/       # Reusable UI components
